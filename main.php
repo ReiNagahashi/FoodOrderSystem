@@ -21,11 +21,15 @@ $saizeriya = new \Restaurants\Restaurant(
 
 $interestedTastesMap = [
     "Margherita" => 1,
-    "CheesBurger" => 2,
+    "CheeseBurger" => 2,
     "Spaghetti" => 1
 ];
 
 $Tom = new \Persons\Customers\Customer("Tom", 49, 'Dasaitama', $interestedTastesMap);
 
-// $invoice = $Tom->order($saizeriya);
-// $invoice->printInvoice();
+$order = $Tom->order($saizeriya);
+
+// またここのめそっどまでちゃんと動くかどうか確認してません！！！
+$invoice = $Nadia->generateInvoice($order);
+
+$invoice->printInvoice();

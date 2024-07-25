@@ -1,6 +1,8 @@
 <?php
 namespace Persons\Employees;
 
+use Invoices\Invoice;
+
 class Cashier extends Employee{
 
     public function __construct(string $name, int $age, string $address, int $employeeId, float $salary) {
@@ -9,8 +11,15 @@ class Cashier extends Employee{
 
     // レストランオブジェクトを引数年渡す必要がある
     // また、返り値はFoodOrderオブジェクト
-    // public function generateOrder(string[] categories, Restaurant restaurant): FoorOrder{
-        
-    // }
+    public function generateInvoice($orderList): Invoice{
+        $total = 0;
+        echo "----------------------------";
+        foreach($orderList as $order => $num){
+            echo $order;
+            $total += $order->price * $num;
+        }
+
+        return new \Invoices\Invoice($total, date('URC'));
+    }
 
 }
