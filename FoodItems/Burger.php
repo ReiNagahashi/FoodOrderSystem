@@ -1,9 +1,7 @@
 <?php
 namespace FoodItems;
 
-
-class Pizza extends FoodItem{
-
+class Burger extends FoodItem{
     public function __construct($name, $description, $price) {
         $this->name = $name;
         $this->description = $description;
@@ -12,6 +10,6 @@ class Pizza extends FoodItem{
 
     static function getCategory(): string
     {
-        return "Pizza";
+        return "Burger";
     }
 }

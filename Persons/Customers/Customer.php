@@ -14,20 +14,18 @@ class Customer extends Person{
 
     //my_tasted_mapのなかの料理が引数に持ってきたレストランのmenuに入っているかをチェック 
     // 最終的にmenuにあった料理飲みを含んだハッシュマップをかえす　
+    // Restaurantのメンバ変数menuはFoodItemオブジェクトの配列を持つ
+    // カスタマーはmy_tasted_mapにあるキーとしての文字列がrestaurantのkeyに存在するかをチェック
+    // trueを返した場合は、my_tasted_mapにあるキーと値のコンボをそのままcartに渡す
     public function order($restaurant): array{
-        // Restaurantのメンバ変数menuはFoodItemオブジェクトの配列を持つ
-        foreach($restaurant->productNames as $name){
-            echo "1111111111111111111111111";
+        // key: string food_name value: { {key: FoodItem value: $foodItem}, {key: amount value: $amount} }
+        $cart = [];
 
-            echo $name;
+        foreach($this->my_tasted_map as $key => $value){
+            if(array_key_exists($key, $restaurant->menu)) $cart[$key] = $value;
         }
-        return array_filter($this->my_tasted_map, function($food) use ($restaurant){
-            echo "000000000000000000000000000000";
-            echo $food;
-            echo array_key_exists($food, $restaurant->productNames);
 
-            return array_key_exists($food, $restaurant->productNames);
-        }, ARRAY_FILTER_USE_KEY);
+        return $cart;
     }
 
 
