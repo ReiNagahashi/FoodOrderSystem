@@ -1,10 +1,8 @@
 <?php 
 spl_autoload_extensions(".php");
 spl_autoload_register( function($name) {
-    // __DIR__は、現在のファイルの絶対ディレクトリパスを取得します。
     $filepath = __DIR__ . "/" . str_replace('\\', '/', $name) . ".php";
     echo "\nRequiring...." . $name . " once ($filepath).\n";
-    // バックスラッシュ(\)をフロントスラッシュ(/)に置き換えます。フロントスラッシュはLinuxのファイルパスで使用されます。
     require_once $filepath;
 });
 
@@ -32,6 +30,12 @@ $Tom = new \Persons\Customers\Customer("Tom", 49, 'Dasaitama', $interestedTastes
 
 $order = $Tom->order($saizeriya);
 
+$dishes = $Inaba->prepareFood($order);
+
+$Tom->eat($dishes);
+
 $invoice = $Nadia->generateInvoice($order, $saizeriya);
 
 $invoice->printInvoice();
+
+$Tom->pay($invoice);

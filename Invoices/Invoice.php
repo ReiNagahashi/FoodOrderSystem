@@ -11,6 +11,6 @@ class Invoice {
     }
 
     public function printInvoice(): void {
-        echo "Total comes $" . $this->finalPrice . ". Date: " . $this->timestamp;
+        echo "Total comes $" . $this->finalPrice . ". Date: " . $this->timestamp . "\n";
     }
 }

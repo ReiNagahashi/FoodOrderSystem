@@ -7,7 +7,16 @@ class Chef extends Employee{
     }
 
 
-    // public function prepareFood(FoodOrder $foodOrder): string{
-    //     return "It's time to prepare something...";
-    // }
+    public function prepareFood($foodOrder): array{
+        $preparedDishes = [];
+
+        foreach($foodOrder as $key => $value){
+            for ($i = 0; $i < $value; $i++){
+                echo $this->name . " is cooking " . $key . " right now!" . "\n";
+                array_push($preparedDishes, $key);
+            }
+        }
+
+        return $preparedDishes;
+    }
 }

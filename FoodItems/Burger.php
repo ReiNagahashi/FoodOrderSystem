@@ -3,9 +3,7 @@ namespace FoodItems;
 
 class Burger extends FoodItem{
     public function __construct($name, $description, $price) {
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
+        parent::__construct($name, $description, $price);
     }
 
     static function getCategory(): string
