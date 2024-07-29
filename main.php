@@ -30,7 +30,7 @@ $Tom = new \Persons\Customers\Customer("Tom", 49, 'Dasaitama', $interestedTastes
 
 $order = $Tom->order($saizeriya);
 
-$dishes = $Inaba->prepareFood($order);
+$dishes = $Inaba->receiveOrders($order, $saizeriya);
 
 $Tom->eat($dishes);
 

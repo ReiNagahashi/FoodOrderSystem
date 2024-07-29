@@ -1,6 +1,7 @@
 <?php
 namespace Persons\Customers;
 
+use FoodItems\FoodItem;
 use Persons\Person;
 use Restaurants\Restaurant;
 use Invoices\Invoice;
@@ -33,7 +34,7 @@ class Customer extends Person{
     }
 
     public function pay(Invoice $invoice):void{
-        echo $this->name . "is paying $". $invoice->finalPrice . " ..." . "\n";
+        echo $this->name . " is paying $". $invoice->finalPrice . " ..." . "\n";
     }
 
 

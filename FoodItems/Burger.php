@@ -10,4 +10,6 @@ class Burger extends FoodItem{
     {
         return "Burger";
     }
+
 }
+
