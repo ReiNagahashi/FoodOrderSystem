@@ -26,7 +26,7 @@ $interestedTastesMap = [
     "Spaghetti" => 1
 ];
 
-$Tom = new \Persons\Customers\Customer("Tom", 49, 'Dasaitama', $interestedTastesMap);
+$Tom = new \Persons\Customers\Customer("Tom", 49, 'Saitama', $interestedTastesMap);
 
 $order = $Tom->order($saizeriya);
 
